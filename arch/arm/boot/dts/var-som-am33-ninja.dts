@@ -83,6 +83,15 @@
 			>;
 		};
 
+		spi1_pins: pinmux_spi1_pins {
+            	    pinctrl-single,pins = <
+            	        0x19c (PIN_OUTPUT_PULLUP | MUX_MODE3)   /* mcasp0_ahclkr.spi1_cs0, OUTPUT_PULLUP | MODE3 */
+            	        0x168 (PIN_INPUT_PULLUP | MUX_MODE4)    /* uart0_ctsn.spi1_d0,      INPUT_PULLUP | MODE4 */
+            	        0x16c (PIN_OUTPUT_PULLUP | MUX_MODE4)   /* uart0_rtsn.spi1_d1,     OUTPUT_PULLUP | MODE4 */
+            	        0x108 (PIN_INPUT_PULLUP | MUX_MODE2)    /* gmii1_col.spi1_sclk,     INPUT_PULLUP | MODE2 */
+            	    >;
+            	};
+
 		clkout1_pin: pinmux_clkout1_pin {
 			pinctrl-single,pins = <
 				0x1b0 (PIN_OUTPUT_PULLDOWN | MUX_MODE3)	/* xdma_event_intr0.clkout1 */
@@ -155,7 +164,7 @@
 				0x64 (PIN_INPUT_PULLDOWN | MUX_MODE2)      /* gpmc_a9.rgmii2_rd2 */
 				0x68 (PIN_INPUT_PULLDOWN | MUX_MODE2)      /* gpmc_a10.rgmii2_rd1 */
 				0x6c (PIN_INPUT_PULLDOWN | MUX_MODE2)      /* gpmc_a11.rgmii2_rd0 */
-				0x108 (PIN_INPUT_PULLDOWN | MUX_MODE1)     /* mii1_col.rmii2_refclk */
+				/*0x108 (PIN_INPUT_PULLDOWN | MUX_MODE1)*/     /* mii1_col.rmii2_refclk */
 				0x130 (PIN_INPUT_PULLUP | MUX_MODE7)       /* mii1_rxclk.gpio3_10 */
 			>;
 		};
@@ -307,6 +316,18 @@
 		
 			status = "okay";
 		};
+
+		spi1: spi@481a0000 {
+                        pinctrl-names = "default";
+                        pinctrl-0 = <&spi1_pins>;
+
+                        status = "okay";
+                        spidev@1 {
+		            	spi-max-frequency = <24000000>;
+		            	reg = <0>;
+		            	compatible = "linux,spidev";
+			};
+                };
 
 		i2c0: i2c@44e0b000 {
 			pinctrl-names = "default";
