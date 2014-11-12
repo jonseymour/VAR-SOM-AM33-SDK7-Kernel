@@ -89,6 +89,7 @@
             	        0x168 (PIN_INPUT_PULLUP | MUX_MODE4)    /* uart0_ctsn.spi1_d0,      INPUT_PULLUP | MODE4 */
             	        0x16c (PIN_OUTPUT_PULLUP | MUX_MODE4)   /* uart0_rtsn.spi1_d1,     OUTPUT_PULLUP | MODE4 */
             	        0x108 (PIN_INPUT_PULLUP | MUX_MODE2)    /* gmii1_col.spi1_sclk,     INPUT_PULLUP | MODE2 */
+			0x40 (PIN_OUTPUT | MUX_MODE7)           /* gpmc_a0.gpio1_16,              OUTPUT | MODE7 */
             	    >;
             	};
 
@@ -152,7 +153,7 @@
 				0x138 (PIN_INPUT_PULLUP | MUX_MODE7)       /* mii1_rxd2.gpio2_19 */
 
 				/* Slave 2 */
-				0x40 (PIN_OUTPUT | MUX_MODE2)	           /* gpmc_a0.rgmii2_tctl */
+				/*0x40 (PIN_OUTPUT | MUX_MODE2)*/	           /* gpmc_a0.rgmii2_tctl */
 				0x44 (PIN_INPUT_PULLDOWN | MUX_MODE2)	   /* gpmc_a1.rgmii2_rctl */
 				0x48 (PIN_OUTPUT | MUX_MODE2)	           /* gpmc_a2.rgmii2_td3 */
 				0x4c (PIN_OUTPUT | MUX_MODE2)              /* gpmc_a3.rgmii2_td2 */
