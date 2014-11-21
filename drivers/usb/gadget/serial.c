@@ -114,14 +114,6 @@ static unsigned n_ports = 1;
 module_param(n_ports, uint, 0);
 MODULE_PARM_DESC(n_ports, "number of ports to create, default=1");
 
-static int override_vendor = -1;
-module_param_named(vendor, override_vendor, int, 0);
-MODULE_PARM_DESC(vendor, "Override USB vendor ID of device");
-
-static int override_product = -1;
-module_param_named(product, override_product, int, 0);
-MODULE_PARM_DESC(product, "Override USB product ID of device");
-
 /*-------------------------------------------------------------------------*/
 
 static struct usb_configuration serial_config_driver = {
@@ -272,13 +264,6 @@ static int __init init(void)
 				cpu_to_le16(GS_PRODUCT_ID);
 	}
 	strings_dev[STRING_DESCRIPTION_IDX].s = serial_config_driver.label;
-
-	if (override_vendor != -1) {
-		device_desc.idVendor = cpu_to_le16(override_vendor);
-	}
-	if (override_product != -1) {
-		device_desc.idProduct = cpu_to_le16(override_product);
-	}
 
 	return usb_composite_probe(&gserial_driver);
 }
