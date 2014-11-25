@@ -85,10 +85,10 @@
 
 		spi1_pins: pinmux_spi1_pins {
             	    pinctrl-single,pins = <
-            	        0x19c (PIN_OUTPUT_PULLUP | MUX_MODE3)   /* mcasp0_ahclkr.spi1_cs0, OUTPUT_PULLUP | MODE3 -- nCS */
-            	        0x168 (PIN_OUTPUT_PULLUP | MUX_MODE4)   /* uart0_ctsn.spi1_d0,     OUTPUT_PULLUP | MODE4 -- MOSI */
-            	        0x16c (PIN_INPUT_PULLUP | MUX_MODE4)    /* uart0_rtsn.spi1_d1,      INPUT_PULLUP | MODE4 -- MISO */
-            	        0x108 (PIN_OUTPUT_PULLUP | MUX_MODE2)   /* gmii1_col.spi1_sclk,    OUTPUT_PULLUP | MODE2 -- SCK */
+            	        0x19c (PIN_OUTPUT_PULLUP | MUX_MODE7)   /* mcasp0_ahclkr.spi1_cs0, OUTPUT_PULLUP | MODE3 -- nCS */
+            	        0x168 (PIN_OUTPUT_PULLUP | MUX_MODE7)   /* uart0_ctsn.spi1_d0,     OUTPUT_PULLUP | MODE4 -- MOSI */
+            	        0x16c (PIN_INPUT_PULLUP | MUX_MODE7)    /* uart0_rtsn.spi1_d1,      INPUT_PULLUP | MODE4 -- MISO */
+            	        0x108 (PIN_OUTPUT_PULLUP | MUX_MODE7)   /* gmii1_col.spi1_sclk,    OUTPUT_PULLUP | MODE2 -- SCK */
 			0x40 (PIN_OUTPUT | MUX_MODE7)           /* gpmc_a0.gpio1_16,              OUTPUT | MODE7 -- nRST*/
             	    >;
             	};
