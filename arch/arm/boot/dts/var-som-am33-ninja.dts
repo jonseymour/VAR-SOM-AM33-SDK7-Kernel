@@ -80,11 +80,17 @@
 				0xD4 (PIN_OUTPUT_PULLDOWN | MUX_MODE6)	/* lcd_data13.uart4_rts */
 				0x11C (PIN_INPUT | MUX_MODE3)	/* mii1_txd3.uart4_rxd */
 				0x120 (PIN_OUTPUT | MUX_MODE3)	/* mii1_txd2.uart4_txd */
+
+				/* CC2530 CC Debugger Interface for programming */
+				0x034 0x37 /* gpmc_ad13 GPIO */
+				0x03C 0x37 /* gpmc_ad15 GPIO */
+				0x038 0x2f /* gpmc_ad14 GPIO */
 			>;
 		};
 
 		spi1_pins: pinmux_spi1_pins {
             	    pinctrl-single,pins = <
+		        /* GPIO since SPI wasn't working -- LED Matrix SPI Programming */
             	        0x19c (PIN_OUTPUT_PULLUP | MUX_MODE7)   /* mcasp0_ahclkr.spi1_cs0, OUTPUT_PULLUP | MODE3 -- nCS */
             	        0x168 (PIN_OUTPUT_PULLUP | MUX_MODE7)   /* uart0_ctsn.spi1_d0,     OUTPUT_PULLUP | MODE4 -- MOSI */
             	        0x16c (PIN_INPUT_PULLUP | MUX_MODE7)    /* uart0_rtsn.spi1_d1,      INPUT_PULLUP | MODE4 -- MISO */
@@ -92,6 +98,8 @@
 			0x40 (PIN_OUTPUT | MUX_MODE7)           /* gpmc_a0.gpio1_16,              OUTPUT | MODE7 -- nRST*/
             	    >;
             	};
+		
+		
 
 		clkout1_pin: pinmux_clkout1_pin {
 			pinctrl-single,pins = <
