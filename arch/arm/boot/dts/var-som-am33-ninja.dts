@@ -28,6 +28,12 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&clkout1_pin &mmc1_pins &wlan_pins>;
 
+		bbb_ehrpwm0_pins: pinmux_bbb_ehrpwm0_pins {
+			pinctrl-single,pins = <
+				0x150 0x3	/* spi0_sclk.ehrpwm0A , OUTPUT_PULLDOWN | MODE3 P9_22*/
+			>;
+		};
+
 		i2c0_pins: pinmux_i2c0_pins {
 			pinctrl-single,pins = <
 				0x188 (PIN_INPUT_PULLUP | MUX_MODE0)	/* i2c0_sda.i2c0_sda */
@@ -382,6 +388,16 @@
 
 			dma-controller@07402000  {
 				status = "okay";
+			};
+		};
+
+		epwmss0: epwmss@48300000 {
+			status = "okay";
+			pinctrl-names = "default";
+			ehrpwm0: ehrpwm@48300200 {
+				status = "okay";
+				pinctrl-names = "default";
+				pinctrl-0 = <&bbb_ehrpwm0_pins>;
 			};
 		};
 
